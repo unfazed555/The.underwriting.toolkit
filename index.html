@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Card Search</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 300px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      padding: 15px;
+      width: 320px;
+      display: none;
+    }
+
+    #result h3 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Card Lookup</h2>
+  <input type="text" id="searchInput" placeholder="Enter card name..." />
+  <button onclick="searchCard()">Search</button>
+
+  <div id="result">
+    <h3 id="cardName"></h3>
+    <p id="cardInfo"></p>
+  </div>
+
+  <script>
+    // Sample data (can be expanded or pulled from a file/database)
+    const cardData = {
+      "ronaldo": {
+        name: "Cristiano Ronaldo",
+        info: "Rating: 90, Position: ST, Nation: Portugal, Club: Al Nassr"
+      },
+      "messi": {
+        name: "Lionel Messi",
+        info: "Rating: 91, Position: RW, Nation: Argentina, Club: Inter Miami"
+      },
+      "mbappe": {
+        name: "Kylian Mbappé",
+        info: "Rating: 92, Position: ST, Nation: France, Club: PSG"
+      }
+    };
+
+    function searchCard() {
+      const input = document.getElementById('searchInput').value.toLowerCase().trim();
+      const result = cardData[input];
+
+      if (result) {
+        document.getElementById('cardName').textContent = result.name;
+        document.getElementById('cardInfo').textContent = result.info;
+        document.getElementById('result').style.display = 'block';
+      } else {
+        document.getElementById('cardName').textContent = "Not Found";
+        document.getElementById('cardInfo').textContent = "No information available for this card.";
+        document.getElementById('result').style.display = 'block';
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+Add index.html
+
