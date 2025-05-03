@@ -19,7 +19,7 @@
 
     .header {
       background-color: lightsteelblue;
-      padding: 40px 20px 30px 20px;
+      padding: 40px 20px 20px 20px;
       text-align: center;
       border-bottom: 1px solid #ccc;
     }
@@ -30,6 +30,29 @@
       font-weight: 600;
       color: #1a1a1a;
       letter-spacing: 1px;
+    }
+
+    .tab-bar {
+      display: flex;
+      justify-content: left;
+      background-color: #e0e0e0;
+      padding: 10px 20px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .tab {
+      margin-right: 20px;
+      padding: 10px 15px;
+      background-color: #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .tab:hover,
+    .tab.active {
+      background-color: #007bff;
+      color: white;
     }
 
     .content {
@@ -96,6 +119,14 @@
       color: #555;
     }
 
+    .tab-section {
+      display: none;
+    }
+
+    .tab-section.active {
+      display: block;
+    }
+
     @media (max-width: 600px) {
       .content {
         padding: 20px;
@@ -114,17 +145,37 @@
     <h1>The Underwriting Toolkit</h1>
   </div>
 
-  <div class="content">
-    <div class="section-title">Protection Class Zip Code Lookup</div>
-    
-    <input type="text" id="searchInput" placeholder="Enter card name..." />
-    <br>
-    <button onclick="searchCard()">Search</button>
+  <div class="tab-bar">
+    <div class="tab active" onclick="switchTab('zip')">Zip Code Lookup</div>
+    <div class="tab" onclick="switchTab('naic')">NAIC Code – Firm Details</div>
+  </div>
 
-    <div id="result">
-      <h3 id="cardName"></h3>
-      <p id="cardInfo"></p>
+  <div class="content">
+
+    <!-- Zip Code Lookup Section -->
+    <div id="zip" class="tab-section active">
+      <div class="section-title">Protection Class Zip Code Lookup</div>
+      <input type="text" id="searchInput" placeholder="Enter card name..." />
+      <br>
+      <button onclick="searchCard()">Search</button>
+      <div id="result">
+        <h3 id="cardName"></h3>
+        <p id="cardInfo"></p>
+      </div>
     </div>
+
+    <!-- NAIC Code Section -->
+    <div id="naic" class="tab-section">
+      <div class="section-title">NAIC Code – Firm Details</div>
+      <input type="text" id="naicInput" placeholder="Enter NAIC code..." />
+      <br>
+      <button onclick="searchNaic()">Search</button>
+      <div id="naicResult">
+        <h3 id="naicName"></h3>
+        <p id="naicInfo"></p>
+      </div>
+    </div>
+
   </div>
 
   <script>
@@ -136,10 +187,6 @@
       "messi": {
         name: "Lionel Messi",
         info: "Rating: 91, Position: RW, Nation: Argentina, Club: Inter Miami"
-      },
-      "mbappe": {
-        name: "Kylian Mbappé",
-        info: "Rating: 92, Position: ST, Nation: France, Club: PSG"
       }
     };
 
@@ -156,6 +203,26 @@
         document.getElementById('cardInfo').textContent = "No information available for this card.";
         document.getElementById('result').style.display = 'block';
       }
+    }
+
+    function searchNaic() {
+      // Placeholder for future NAIC code search logic
+      const input = document.getElementById('naicInput').value.trim();
+      document.getElementById('naicName').textContent = "No results";
+      document.getElementById('naicInfo').textContent = "You will populate this data later.";
+      document.getElementById('naicResult').style.display = 'block';
+    }
+
+    function switchTab(tabId) {
+      // Toggle active tab button
+      const tabs = document.querySelectorAll('.tab');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      event.target.classList.add('active');
+
+      // Show the selected section, hide others
+      const sections = document.querySelectorAll('.tab-section');
+      sections.forEach(section => section.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
     }
   </script>
 
