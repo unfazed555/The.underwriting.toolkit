@@ -7,116 +7,131 @@
 
   <!-- Aptos Narrow font -->
   <link href="https://fonts.googleapis.com/css2?family=Aptos+Narrow:wght@300;400;500;700&display=swap" rel="stylesheet">
-  
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Aptos Narrow', sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
       margin: 0;
-      padding: 0;
+      font-family: 'Aptos Narrow', sans-serif;
+      background-color: #f9f9f9;
+      color: #1a1a1a;
     }
 
     .header {
-      background-color: lightsteelblue;
-      padding: 40px 20px 20px 20px;
+      background-color: #f0f4f8;
+      padding: 60px 20px 30px;
       text-align: center;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #dcdcdc;
     }
 
     .header h1 {
       margin: 0;
-      font-size: 2.5em;
-      font-weight: 600;
-      color: #1a1a1a;
-      letter-spacing: 1px;
+      font-size: 2.8rem;
+      font-weight: 500;
+      color: #222;
+      letter-spacing: 0.5px;
     }
 
     .tab-bar {
       display: flex;
-      justify-content: left;
-      background-color: #e0e0e0;
-      padding: 10px 20px;
-      border-bottom: 1px solid #ccc;
+      justify-content: center;
+      padding: 15px 10px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #e2e2e2;
     }
 
     .tab {
-      margin-right: 20px;
-      padding: 10px 15px;
-      background-color: #ccc;
-      border-radius: 5px;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
       cursor: pointer;
-      transition: background-color 0.3s;
+      background-color: #f0f0f0;
+      color: #333;
+      transition: background-color 0.3s, color 0.3s;
     }
 
-    .tab:hover,
     .tab.active {
-      background-color: #007bff;
-      color: white;
+      background-color: #007aff;
+      color: #fff;
+    }
+
+    .tab:hover {
+      background-color: #e0e0e0;
     }
 
     .content {
-      padding: 30px 40px;
-      text-align: left;
+      padding: 40px 20px;
+      max-width: 700px;
+      margin: auto;
     }
 
     .section-title {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 500;
-      margin-bottom: 15px;
-      color: #007bff;
+      margin-bottom: 20px;
+      color: #555;
+      text-align: center;
+    }
+
+    .form-group {
+      text-align: center;
+      margin-bottom: 20px;
     }
 
     input[type="text"] {
-      padding: 12px;
-      width: 100%;
+      padding: 14px 16px;
+      width: 80%;
       max-width: 400px;
       font-size: 16px;
-      border: 2px solid #ddd;
-      border-radius: 8px;
-      margin-bottom: 15px;
-      transition: border-color 0.3s;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      transition: border-color 0.2s;
     }
 
     input[type="text"]:focus {
-      border-color: #007bff;
+      border-color: #007aff;
       outline: none;
     }
 
     button {
-      padding: 12px 20px;
+      padding: 12px 24px;
       font-size: 16px;
-      background-color: #007bff;
-      color: white;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
+      background-color: #007aff;
+      color: white;
       cursor: pointer;
       transition: background-color 0.3s;
     }
 
     button:hover {
-      background-color: #0056b3;
+      background-color: #005ecb;
     }
 
-    #result {
-      margin-top: 20px;
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    .result-card {
+      margin-top: 30px;
+      background: white;
       padding: 20px;
-      width: 100%;
-      max-width: 500px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
       display: none;
+      transition: all 0.3s ease;
     }
 
-    #result h3 {
+    .result-card h3 {
       margin-top: 0;
-      color: #007bff;
+      color: #007aff;
     }
 
-    #result p {
+    .result-card p {
       font-size: 16px;
-      color: #555;
+      color: #444;
     }
 
     .tab-section {
@@ -128,13 +143,18 @@
     }
 
     @media (max-width: 600px) {
-      .content {
-        padding: 20px;
+      .tab-bar {
+        flex-direction: column;
+        align-items: center;
       }
 
-      input[type="text"],
-      button {
-        width: 100%;
+      .tab {
+        margin: 5px 0;
+        width: 90%;
+      }
+
+      .content {
+        padding: 20px;
       }
     }
   </style>
@@ -146,8 +166,8 @@
   </div>
 
   <div class="tab-bar">
-    <div class="tab active" onclick="switchTab('zip')">Zip Code Lookup</div>
-    <div class="tab" onclick="switchTab('naic')">NAIC Code – Firm Details</div>
+    <button class="tab active" onclick="switchTab('zip')">Zip Code Lookup</button>
+    <button class="tab" onclick="switchTab('naic')">NAIC Code – Firm Details</button>
   </div>
 
   <div class="content">
@@ -155,10 +175,12 @@
     <!-- Zip Code Lookup Section -->
     <div id="zip" class="tab-section active">
       <div class="section-title">Protection Class Zip Code Lookup</div>
-      <input type="text" id="searchInput" placeholder="Enter card name..." />
-      <br>
-      <button onclick="searchCard()">Search</button>
-      <div id="result">
+      <div class="form-group">
+        <input type="text" id="searchInput" placeholder="Enter card name..." />
+        <br />
+        <button onclick="searchCard()">Search</button>
+      </div>
+      <div class="result-card" id="result">
         <h3 id="cardName"></h3>
         <p id="cardInfo"></p>
       </div>
@@ -167,10 +189,12 @@
     <!-- NAIC Code Section -->
     <div id="naic" class="tab-section">
       <div class="section-title">NAIC Code – Firm Details</div>
-      <input type="text" id="naicInput" placeholder="Enter NAIC code..." />
-      <br>
-      <button onclick="searchNaic()">Search</button>
-      <div id="naicResult">
+      <div class="form-group">
+        <input type="text" id="naicInput" placeholder="Enter NAIC code..." />
+        <br />
+        <button onclick="searchNaic()">Search</button>
+      </div>
+      <div class="result-card" id="naicResult">
         <h3 id="naicName"></h3>
         <p id="naicInfo"></p>
       </div>
@@ -194,34 +218,34 @@
       const input = document.getElementById('searchInput').value.toLowerCase().trim();
       const result = cardData[input];
 
+      const resultCard = document.getElementById('result');
+
       if (result) {
         document.getElementById('cardName').textContent = result.name;
         document.getElementById('cardInfo').textContent = result.info;
-        document.getElementById('result').style.display = 'block';
       } else {
         document.getElementById('cardName').textContent = "Not Found";
-        document.getElementById('cardInfo').textContent = "No information available for this card.";
-        document.getElementById('result').style.display = 'block';
+        document.getElementById('cardInfo').textContent = "No information available.";
       }
+
+      resultCard.style.display = 'block';
     }
 
     function searchNaic() {
-      // Placeholder for future NAIC code search logic
       const input = document.getElementById('naicInput').value.trim();
-      document.getElementById('naicName').textContent = "No results";
+      document.getElementById('naicName').textContent = "No results yet";
       document.getElementById('naicInfo').textContent = "You will populate this data later.";
       document.getElementById('naicResult').style.display = 'block';
     }
 
     function switchTab(tabId) {
-      // Toggle active tab button
       const tabs = document.querySelectorAll('.tab');
-      tabs.forEach(tab => tab.classList.remove('active'));
-      event.target.classList.add('active');
-
-      // Show the selected section, hide others
       const sections = document.querySelectorAll('.tab-section');
+
+      tabs.forEach(tab => tab.classList.remove('active'));
       sections.forEach(section => section.classList.remove('active'));
+
+      event.target.classList.add('active');
       document.getElementById(tabId).classList.add('active');
     }
   </script>
