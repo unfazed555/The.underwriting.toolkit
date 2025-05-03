@@ -17,7 +17,6 @@
       padding: 0;
     }
 
-    /* Header section with light steel blue background */
     .header {
       background-color: lightsteelblue;
       padding: 40px 20px 30px 20px;
@@ -34,8 +33,15 @@
     }
 
     .content {
-      padding: 30px 20px;
-      text-align: center;
+      padding: 30px 40px;
+      text-align: left;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 15px;
+      color: #007bff;
     }
 
     input[type="text"] {
@@ -77,8 +83,6 @@
       padding: 20px;
       width: 100%;
       max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
       display: none;
     }
 
@@ -93,9 +97,13 @@
     }
 
     @media (max-width: 600px) {
+      .content {
+        padding: 20px;
+      }
+
       input[type="text"],
       button {
-        width: 90%;
+        width: 100%;
       }
     }
   </style>
@@ -107,6 +115,8 @@
   </div>
 
   <div class="content">
+    <div class="section-title">Protection Class Zip Code Lookup</div>
+    
     <input type="text" id="searchInput" placeholder="Enter card name..." />
     <br>
     <button onclick="searchCard()">Search</button>
