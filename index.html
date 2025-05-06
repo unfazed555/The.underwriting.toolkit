@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Underwriting Toolkit</title>
   <link href="https://fonts.googleapis.com/css2?family=Aptos+Narrow&display=swap" rel="stylesheet" />
   <style>
@@ -47,6 +47,33 @@
       display: block;
     }
 
+    .image-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .image-box {
+      flex: 0 1 250px;
+      background-color: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .image-box img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+
+    .image-box p {
+      font-size: 0.95rem;
+    }
+
     .search-container {
       margin-top: 2rem;
       display: flex;
@@ -76,29 +103,12 @@
       color: #555;
       text-decoration: underline;
     }
-
-    .image-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5rem;
-    }
-
-    .image-column {
-      max-width: 250px;
-      text-align: center;
-    }
-
-    .image-column img {
-      width: 100%;
-      border-radius: 8px;
-    }
   </style>
 </head>
 <body>
   <header>
     <h1>The Underwriting Toolkit</h1>
-    <p>Protection Class Zip Code Lookup</p>
+    <p>Construction Types Made Simple</p>
   </header>
 
   <nav>
@@ -108,30 +118,41 @@
   </nav>
 
   <div id="home" class="tab active">
-    <section style="text-align: center; padding: 2rem;">
+    <section style="text-align: center;">
       <h2>Construction Types Explained</h2>
-      <p>Visual guides to common construction classifications used in underwriting.</p>
-      <div class="image-row">
-        <div class="image-column">
+      <p>A beginner-friendly visual guide to help you understand building classifications used in underwriting.</p>
+
+      <div class="image-grid">
+        <div class="image-box">
           <img src="Minimalist Wooden House Illustration.png" alt="Frame Construction" />
-          <p><strong>Frame</strong><br>Wood-framed structure with combustible materials.</p>
+          <h3>Frame</h3>
+          <p>Wood-framed buildings. Common for single or multi-family homes in suburban or residential areas. Cost-efficient, but highly combustible and less durable in fires.</p>
         </div>
-        <div class="image-column">
+
+        <div class="image-box">
           <img src="Vintage Joisted Masonry Building Design.png" alt="Joisted Masonry" />
-          <p><strong>Joisted Masonry</strong><br>Brick or concrete exterior with wood interior.</p>
+          <h3>Joisted Masonry (JM)</h3>
+          <p>Brick or block exterior walls with wood framing inside. Often used in older commercial buildings and small apartment complexes. Moderate fire risk due to wooden joists.</p>
         </div>
-        <div class="image-column">
+
+        <div class="image-box">
           <img src="Minimalist Non-Combustible Building Illustration.png" alt="Non-Combustible" />
-          <p><strong>Non-Combustible</strong><br>Metal or non-combustible construction throughout.</p>
+          <h3>Non-Combustible</h3>
+          <p>Built entirely with non-combustible materials like steel or concrete. Common in industrial buildings and retail centers. Better fire resistance and lower insurance risk.</p>
         </div>
-        <div class="image-column">
+
+        <div class="image-box">
           <img src="Masonry Non-Combustible Building Illustration.png" alt="Masonry Non-Combustible" />
-          <p><strong>Masonry Non-Combustible</strong><br>Masonry exterior with non-combustible floors/roof.</p>
+          <h3>Masonry Non-Combustible (MNC)</h3>
+          <p>Brick or block walls and non-combustible floors and roof. Frequently found in commercial structures and warehouses. Good fire performance and structural integrity.</p>
         </div>
-        <div class="image-column">
+
+        <div class="image-box">
           <img src="Fire Resistive Building Illustration.png" alt="Modified Fire Resistive" />
-          <p><strong>Modified Fire Resistive</strong><br>Fire resistant for 1-2 hours.</p>
+          <h3>Modified Fire Resistive</h3>
+          <p>Specialized fire-rated construction that withstands fire for 1–2 hours. Seen in hospitals, government buildings, and mid-rise offices. High safety but higher cost.</p>
         </div>
+      </div>
     </section>
   </div>
 
@@ -150,8 +171,7 @@
   </div>
 
   <footer>
-    <p>The Underwriting Toolkit</p>
-    <p><a href="terms.html">Terms of Service</a></p>
+    <p>&copy; 2025 The Underwriting Toolkit | <a href="terms.html">Terms of Service</a></p>
   </footer>
 
   <script>
