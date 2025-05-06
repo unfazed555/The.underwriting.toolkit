@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Underwriting Toolkit</title>
   <link href="https://fonts.googleapis.com/css2?family=Aptos+Narrow&display=swap" rel="stylesheet" />
   <style>
@@ -57,8 +57,6 @@
       padding: 0.5rem;
       font-size: 1rem;
       width: 300px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
     }
 
     .result {
@@ -78,6 +76,23 @@
       color: #555;
       text-decoration: underline;
     }
+
+    .image-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .image-column {
+      max-width: 250px;
+      text-align: center;
+    }
+
+    .image-column img {
+      width: 100%;
+      border-radius: 8px;
+    }
   </style>
 </head>
 <body>
@@ -93,7 +108,36 @@
   </nav>
 
   <div id="home" class="tab active">
-    <!-- You'll add basic underwriting info here -->
+    <section style="text-align: center; padding: 2rem;">
+      <h2>Construction Types Explained</h2>
+      <p>Visual guides to common construction classifications used in underwriting.</p>
+      <div class="image-row">
+        <div class="image-column">
+          <img src="images/frame.png" alt="Frame Construction" />
+          <p><strong>Frame</strong><br>Wood-framed structure with combustible materials.</p>
+        </div>
+        <div class="image-column">
+          <img src="images/joisted-masonry.png" alt="Joisted Masonry" />
+          <p><strong>Joisted Masonry</strong><br>Brick or concrete exterior with wood interior.</p>
+        </div>
+        <div class="image-column">
+          <img src="images/non-combustible.png" alt="Non-Combustible" />
+          <p><strong>Non-Combustible</strong><br>Metal or non-combustible construction throughout.</p>
+        </div>
+        <div class="image-column">
+          <img src="images/masonry-non-combustible.png" alt="Masonry Non-Combustible" />
+          <p><strong>Masonry Non-Combustible</strong><br>Masonry exterior with non-combustible floors/roof.</p>
+        </div>
+        <div class="image-column">
+          <img src="images/modified-fire-resistive.png" alt="Modified Fire Resistive" />
+          <p><strong>Modified Fire Resistive</strong><br>Fire resistant for 1-2 hours.</p>
+        </div>
+        <div class="image-column">
+          <img src="images/fire-resistive.png" alt="Fire Resistive" />
+          <p><strong>Fire Resistive</strong><br>Fire resistant for 2+ hours, typically high-rise concrete or steel.</p>
+        </div>
+      </div>
+    </section>
   </div>
 
   <div id="pcLookup" class="tab">
@@ -121,7 +165,6 @@
         name: "Atlanta, GA",
         info: "Protection Class: 5, County: Fulton"
       }
-      // Add more ZIP entries here
     };
 
     function showTab(tabId) {
@@ -139,7 +182,6 @@
     }
 
     function searchNAIC() {
-      // Placeholder for future data
       document.getElementById('naicResult').innerHTML = "<p>Data loading soon.</p>";
     }
   </script>
