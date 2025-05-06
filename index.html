@@ -49,29 +49,36 @@
 
     .image-grid {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding: 1rem 0;
     }
 
     .image-box {
-      flex: 0 1 250px;
+      flex: 0 0 18%;
       background-color: #fff;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 0.75rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
 
     .image-box img {
       width: 100%;
+      height: auto;
       border-radius: 6px;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .image-box h3 {
+      margin: 0.5rem 0 0.25rem;
+      font-size: 1.1rem;
     }
 
     .image-box p {
-      font-size: 0.95rem;
+      font-size: 0.85rem;
     }
 
     .search-container {
@@ -103,12 +110,24 @@
       color: #555;
       text-decoration: underline;
     }
+
+    @media (max-width: 900px) {
+      .image-box {
+        flex: 0 0 45%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .image-box {
+        flex: 0 0 90%;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>The Underwriting Toolkit</h1>
-    <p>Construction Types Made Simple</p>
+    <p>Construction Types Visual Guide</p>
   </header>
 
   <nav>
@@ -119,38 +138,38 @@
 
   <div id="home" class="tab active">
     <section style="text-align: center;">
-      <h2>Construction Types Explained</h2>
-      <p>A beginner-friendly visual guide to help you understand building classifications used in underwriting.</p>
+      <h2>Construction Types</h2>
+      <p>Understand each category and where it's commonly used in the real world.</p>
 
       <div class="image-grid">
         <div class="image-box">
           <img src="Minimalist Wooden House Illustration.png" alt="Frame Construction" />
           <h3>Frame</h3>
-          <p>Wood-framed buildings. Common for single or multi-family homes in suburban or residential areas. Cost-efficient, but highly combustible and less durable in fires.</p>
+          <p>Wood-framed homes, often seen in residential areas. Cost-effective but highly flammable and less structurally durable in fire situations.</p>
         </div>
 
         <div class="image-box">
           <img src="Vintage Joisted Masonry Building Design.png" alt="Joisted Masonry" />
-          <h3>Joisted Masonry (JM)</h3>
-          <p>Brick or block exterior walls with wood framing inside. Often used in older commercial buildings and small apartment complexes. Moderate fire risk due to wooden joists.</p>
+          <h3>Joisted Masonry</h3>
+          <p>Brick/block exterior with wood framing inside. Common in older retail or apartments; decent fire resistance with moderate cost.</p>
         </div>
 
         <div class="image-box">
           <img src="Minimalist Non-Combustible Building Illustration.png" alt="Non-Combustible" />
           <h3>Non-Combustible</h3>
-          <p>Built entirely with non-combustible materials like steel or concrete. Common in industrial buildings and retail centers. Better fire resistance and lower insurance risk.</p>
+          <p>Steel or concrete materials throughout. Ideal for factories and large stores; strong resistance to fire spread.</p>
         </div>
 
         <div class="image-box">
           <img src="Masonry Non-Combustible Building Illustration.png" alt="Masonry Non-Combustible" />
-          <h3>Masonry Non-Combustible (MNC)</h3>
-          <p>Brick or block walls and non-combustible floors and roof. Frequently found in commercial structures and warehouses. Good fire performance and structural integrity.</p>
+          <h3>Masonry Non-Combustible</h3>
+          <p>Brick/block exterior with concrete or metal roofs/floors. Widely used in commercial buildings like warehouses or offices.</p>
         </div>
 
         <div class="image-box">
           <img src="Fire Resistive Building Illustration.png" alt="Modified Fire Resistive" />
           <h3>Modified Fire Resistive</h3>
-          <p>Specialized fire-rated construction that withstands fire for 1–2 hours. Seen in hospitals, government buildings, and mid-rise offices. High safety but higher cost.</p>
+          <p>Structures designed to resist fire for 1–2 hours. Used in hospitals, government centers, or high-occupancy facilities.</p>
         </div>
       </div>
     </section>
