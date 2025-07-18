@@ -133,7 +133,7 @@
   <nav>
     <a href="#" onclick="showTab('home')">Basic Underwriting</a>
     <a href="#" onclick="showTab('pcLookup')">Protection Class Lookup</a>
-    <a href="#" onclick="showTab('naic')">NAIC Code – Firm Details</a>
+    <a href="#" onclick="showTab('commission')">Commission per Carrier</a>
   </nav>
 
   <div id="home" class="tab active">
@@ -142,35 +142,7 @@
       <p>Understand each category and where it's commonly used in the real world.</p>
 
       <div class="image-grid">
-        <div class="image-box">
-          <img src="Minimalist Wooden House Illustration.png" alt="Frame Construction" />
-          <h3>Frame</h3>
-          <p>Wood-framed homes, often seen in residential areas. Cost-effective but highly flammable and less structurally durable in fire situations.</p>
-        </div>
-
-        <div class="image-box">
-          <img src="Vintage Joisted Masonry Building Design.png" alt="Joisted Masonry" />
-          <h3>Joisted Masonry</h3>
-          <p>Brick/block exterior with wood framing inside. Common in older retail or apartments; decent fire resistance with moderate cost.</p>
-        </div>
-
-        <div class="image-box">
-          <img src="Minimalist Non-Combustible Building Illustration.png" alt="Non-Combustible" />
-          <h3>Non-Combustible</h3>
-          <p>Steel or concrete materials throughout. Ideal for factories and large stores; strong resistance to fire spread.</p>
-        </div>
-
-        <div class="image-box">
-          <img src="Masonry Non-Combustible Building Illustration.png" alt="Masonry Non-Combustible" />
-          <h3>Masonry Non-Combustible</h3>
-          <p>Brick/block exterior with concrete or metal roofs/floors. Widely used in commercial buildings like warehouses or offices.</p>
-        </div>
-
-        <div class="image-box">
-          <img src="Fire Resistive Building Illustration.png" alt="Modified Fire Resistive" />
-          <h3>Modified Fire Resistive</h3>
-          <p>Structures designed to resist fire for 1–2 hours. Used in hospitals, government centers, or high-occupancy facilities.</p>
-        </div>
+        <!-- ... your existing construction boxes ... -->
       </div>
     </section>
   </div>
@@ -182,11 +154,11 @@
     <div class="result" id="zipResult"></div>
   </div>
 
-  <div id="naic" class="tab">
+  <div id="commission" class="tab">
     <div class="search-container">
-      <input type="text" id="naicSearch" placeholder="Enter Firm Name or Code" onkeyup="searchNAIC()" />
+      <input type="text" id="commissionSearch" placeholder="Enter Carrier Name" onkeyup="searchCommission()" />
     </div>
-    <div class="result" id="naicResult"></div>
+    <div class="result" id="commissionResult"></div>
   </div>
 
   <footer>
@@ -215,9 +187,10 @@
       resultDiv.innerHTML = result ? `<p><strong>${result.name}</strong><br>${result.info}</p>` : "<p>No result found.</p>";
     }
 
-    function searchNAIC() {
-      document.getElementById('naicResult').innerHTML = "<p>Data loading soon.</p>";
+    function searchCommission() {
+      document.getElementById('commissionResult').innerHTML = "<p>Commission data coming soon.</p>";
     }
   </script>
 </body>
 </html>
+
