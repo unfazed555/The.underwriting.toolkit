@@ -33,10 +33,11 @@
     }
 
     nav a {
-      margin: 0.5rem 1rem;
+      margin: 0 1rem;
       text-decoration: none;
       color: #333;
       font-weight: bold;
+      white-space: nowrap;
     }
 
     .tab {
@@ -48,21 +49,56 @@
       display: block;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
+    .image-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding: 1rem 0;
+    }
+
+    .image-box {
+      flex: 0 0 18%;
       background-color: #fff;
+      padding: 0.75rem;
+      border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .image-box img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+    }
+
+    .image-box h3 {
+      margin: 0.5rem 0 0.25rem;
+      font-size: 1.1rem;
+    }
+
+    .image-box p {
+      font-size: 0.85rem;
+    }
+
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 90%;
+      background-color: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     th, td {
+      padding: 8px;
       border: 1px solid #ccc;
-      padding: 0.75rem;
       text-align: left;
     }
 
     th {
-      background-color: #e0e0e0;
+      background-color: #d3d3d3;
     }
 
     footer {
@@ -77,6 +113,18 @@
       color: #555;
       text-decoration: underline;
     }
+
+    @media (max-width: 900px) {
+      .image-box {
+        flex: 0 0 45%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .image-box {
+        flex: 0 0 90%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -87,43 +135,46 @@
   <nav>
     <a href="#" onclick="showTab('home')">Basic Underwriting</a>
     <a href="#" onclick="showTab('commission')">Commission per Carrier</a>
-    <a href="#" onclick="showTab('contacts')">Contacts</a>
+    <a href="#" onclick="showTab('contacts')">Carrier Contacts</a>
     <a href="#" onclick="showTab('links')">Important Links</a>
   </nav>
 
   <div id="home" class="tab active">
-    <section>
+    <section style="text-align: center;">
       <h2>Construction Types</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Type</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Frame</td>
-            <td>Wood-framed homes, cost-effective but highly flammable.</td>
-          </tr>
-          <tr>
-            <td>Joisted Masonry</td>
-            <td>Brick/block exterior with wood framing inside.</td>
-          </tr>
-          <tr>
-            <td>Non-Combustible</td>
-            <td>Steel or concrete materials, great fire resistance.</td>
-          </tr>
-          <tr>
-            <td>Masonry Non-Combustible</td>
-            <td>Brick/block exterior with concrete or metal interiors.</td>
-          </tr>
-          <tr>
-            <td>Modified Fire Resistive</td>
-            <td>Resists fire for 1–2 hours. Used in hospitals and government buildings.</td>
-          </tr>
-        </tbody>
-      </table>
+      <p>Understand each category and where it's commonly used in the real world.</p>
+
+      <div class="image-grid">
+        <div class="image-box">
+          <img src="Minimalist Wooden House Illustration.png" alt="Frame Construction" />
+          <h3>Frame</h3>
+          <p>Wood-framed homes, often seen in residential areas. Cost-effective but highly flammable and less structurally durable in fire situations.</p>
+        </div>
+
+        <div class="image-box">
+          <img src="Vintage Joisted Masonry Building Design.png" alt="Joisted Masonry" />
+          <h3>Joisted Masonry</h3>
+          <p>Brick/block exterior with wood framing inside. Common in older retail or apartments; decent fire resistance with moderate cost.</p>
+        </div>
+
+        <div class="image-box">
+          <img src="Minimalist Non-Combustible Building Illustration.png" alt="Non-Combustible" />
+          <h3>Non-Combustible</h3>
+          <p>Steel or concrete materials throughout. Ideal for factories and large stores; strong resistance to fire spread.</p>
+        </div>
+
+        <div class="image-box">
+          <img src="Masonry Non-Combustible Building Illustration.png" alt="Masonry Non-Combustible" />
+          <h3>Masonry Non-Combustible</h3>
+          <p>Brick/block exterior with concrete or metal roofs/floors. Widely used in commercial buildings like warehouses or offices.</p>
+        </div>
+
+        <div class="image-box">
+          <img src="Fire Resistive Building Illustration.png" alt="Modified Fire Resistive" />
+          <h3>Modified Fire Resistive</h3>
+          <p>Structures designed to resist fire for 1–2 hours. Used in hospitals, government centers, or high-occupancy facilities.</p>
+        </div>
+      </div>
     </section>
   </div>
 
@@ -133,7 +184,7 @@
       <thead>
         <tr>
           <th>Carrier</th>
-          <th>LOB (Line of Business)</th>
+          <th>Line of Business</th>
           <th>Commission %</th>
           <th>Binding or Brokerage</th>
         </tr>
@@ -157,7 +208,7 @@
           <td>12%</td>
           <td>Binding</td>
         </tr>
-        <!-- Add more rows as needed -->
+        <!-- Add more as needed -->
       </tbody>
     </table>
   </div>
@@ -176,29 +227,45 @@
       <tbody>
         <tr>
           <td>Travelers</td>
-          <td>John Smith</td>
-          <td>john.smith@travelers.com</td>
-          <td>(555) 123-4567</td>
+          <td>Sarah Martinez</td>
+          <td>sarah.martinez@travelers.com</td>
+          <td>(800) 555-1234</td>
         </tr>
         <tr>
-          <td>Liberty Mutual</td>
-          <td>Jane Doe</td>
-          <td>jane.doe@libertymutual.com</td>
-          <td>(555) 987-6543</td>
+          <td>Progressive</td>
+          <td>Daniel Lee</td>
+          <td>dlee@progressive.com</td>
+          <td>(800) 555-9876</td>
         </tr>
-        <!-- Add more rows as needed -->
+        <!-- Add more as needed -->
       </tbody>
     </table>
   </div>
 
   <div id="links" class="tab">
     <h2>Important Links</h2>
-    <ul>
-      <li><a href="https://www.travelers.com" target="_blank">Travelers Portal</a></li>
-      <li><a href="https://www.libertymutual.com" target="_blank">Liberty Mutual Agent Login</a></li>
-      <li><a href="https://www.amtrustfinancial.com" target="_blank">AmTrust Dashboard</a></li>
-      <!-- Add more links as needed -->
-    </ul>
+    <table>
+      <thead>
+        <tr>
+          <th>Resource</th>
+          <th>Description</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ISO Protection Lookup</td>
+          <td>Check fire protection class by address or zip</td>
+          <td><a href="https://www.iso.com" target="_blank" rel="noopener noreferrer">Visit Site</a></td>
+        </tr>
+        <tr>
+          <td>Roof Age Tool</td>
+          <td>Satellite roofing age and condition checker</td>
+          <td><a href="https://www.nearmap.com" target="_blank" rel="noopener noreferrer">Visit Site</a></td>
+        </tr>
+        <!-- Add more as needed -->
+      </tbody>
+    </table>
   </div>
 
   <footer>
