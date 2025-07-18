@@ -29,6 +29,7 @@
       justify-content: center;
       background-color: #d3d3d3;
       padding: 1rem;
+      flex-wrap: wrap;
     }
 
     nav a {
@@ -36,6 +37,7 @@
       text-decoration: none;
       color: #333;
       font-weight: bold;
+      white-space: nowrap;
     }
 
     .tab {
@@ -84,7 +86,7 @@
     table {
       margin: 0 auto;
       border-collapse: collapse;
-      width: 80%;
+      width: 90%;
     }
 
     th, td {
@@ -132,7 +134,8 @@
   <nav>
     <a href="#" onclick="showTab('home')">Basic Underwriting</a>
     <a href="#" onclick="showTab('pcLookup')">Protection Class Lookup</a>
-    <a href="#" onclick="showTab('commission')">Commission per Carrier</a>
+    <a href="#" onclick="showTab('contacts')">Carrier Contacts</a>
+    <a href="#" onclick="showTab('links')">Important Links</a>
   </nav>
 
   <div id="home" class="tab active">
@@ -198,29 +201,54 @@
     </table>
   </div>
 
-  <div id="commission" class="tab">
-    <h2 style="text-align:center;">Commission per Carrier</h2>
+  <div id="contacts" class="tab">
+    <h2 style="text-align:center;">Carrier Contacts</h2>
     <table>
       <thead>
         <tr>
           <th>Carrier</th>
-          <th>Line of Business</th>
-          <th>Commission %</th>
-          <th>Notes</th>
+          <th>Rep Name</th>
+          <th>Email</th>
+          <th>Phone</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>Travelers</td>
-          <td>Commercial Auto</td>
-          <td>10%</td>
-          <td>Standard tier</td>
+          <td>Sarah Martinez</td>
+          <td>sarah.martinez@travelers.com</td>
+          <td>(800) 555-1234</td>
         </tr>
         <tr>
           <td>Progressive</td>
-          <td>Homeowners</td>
-          <td>12%</td>
-          <td>Bundle discount eligible</td>
+          <td>Daniel Lee</td>
+          <td>dlee@progressive.com</td>
+          <td>(800) 555-9876</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="links" class="tab">
+    <h2 style="text-align:center;">Important Links</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Resource</th>
+          <th>Description</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ISO Protection Lookup</td>
+          <td>Check fire protection class by address or zip</td>
+          <td><a href="https://www.iso.com" target="_blank">Visit Site</a></td>
+        </tr>
+        <tr>
+          <td>Roof Age Tool</td>
+          <td>Satellite roofing age and condition checker</td>
+          <td><a href="https://www.nearmap.com" target="_blank">Visit Site</a></td>
         </tr>
       </tbody>
     </table>
