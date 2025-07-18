@@ -81,21 +81,20 @@
       font-size: 0.85rem;
     }
 
-    .search-container {
-      margin-top: 2rem;
-      display: flex;
-      justify-content: center;
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 80%;
     }
 
-    input[type="text"] {
-      padding: 0.5rem;
-      font-size: 1rem;
-      width: 300px;
+    th, td {
+      padding: 8px;
+      border: 1px solid #ccc;
+      text-align: left;
     }
 
-    .result {
-      margin-top: 1rem;
-      text-align: center;
+    th {
+      background-color: #d3d3d3;
     }
 
     footer {
@@ -142,23 +141,89 @@
       <p>Understand each category and where it's commonly used in the real world.</p>
 
       <div class="image-grid">
-        <!-- ... your existing construction boxes ... -->
+        <div class="image-box">
+          <img src="Minimalist Wooden House Illustration.png" alt="Frame Construction" />
+          <h3>Frame</h3>
+          <p>Wood-framed homes, often seen in residential areas. Cost-effective but highly flammable and less structurally durable in fire situations.</p>
+        </div>
+        <div class="image-box">
+          <img src="Vintage Joisted Masonry Building Design.png" alt="Joisted Masonry" />
+          <h3>Joisted Masonry</h3>
+          <p>Brick/block exterior with wood framing inside. Common in older retail or apartments; decent fire resistance with moderate cost.</p>
+        </div>
+        <div class="image-box">
+          <img src="Minimalist Non-Combustible Building Illustration.png" alt="Non-Combustible" />
+          <h3>Non-Combustible</h3>
+          <p>Steel or concrete materials throughout. Ideal for factories and large stores; strong resistance to fire spread.</p>
+        </div>
+        <div class="image-box">
+          <img src="Masonry Non-Combustible Building Illustration.png" alt="Masonry Non-Combustible" />
+          <h3>Masonry Non-Combustible</h3>
+          <p>Brick/block exterior with concrete or metal roofs/floors. Widely used in commercial buildings like warehouses or offices.</p>
+        </div>
+        <div class="image-box">
+          <img src="Fire Resistive Building Illustration.png" alt="Modified Fire Resistive" />
+          <h3>Modified Fire Resistive</h3>
+          <p>Structures designed to resist fire for 1–2 hours. Used in hospitals, government centers, or high-occupancy facilities.</p>
+        </div>
       </div>
     </section>
   </div>
 
   <div id="pcLookup" class="tab">
-    <div class="search-container">
-      <input type="text" id="zipSearch" placeholder="Enter Zip Code" onkeyup="searchZip()" />
-    </div>
-    <div class="result" id="zipResult"></div>
+    <h2 style="text-align:center;">Protection Class Lookup</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Zip Code</th>
+          <th>City</th>
+          <th>Protection Class</th>
+          <th>County</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>30301</td>
+          <td>Atlanta, GA</td>
+          <td>5</td>
+          <td>Fulton</td>
+        </tr>
+        <tr>
+          <td>10001</td>
+          <td>New York, NY</td>
+          <td>2</td>
+          <td>New York</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <div id="commission" class="tab">
-    <div class="search-container">
-      <input type="text" id="commissionSearch" placeholder="Enter Carrier Name" onkeyup="searchCommission()" />
-    </div>
-    <div class="result" id="commissionResult"></div>
+    <h2 style="text-align:center;">Commission per Carrier</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Carrier</th>
+          <th>Line of Business</th>
+          <th>Commission %</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Travelers</td>
+          <td>Commercial Auto</td>
+          <td>10%</td>
+          <td>Standard tier</td>
+        </tr>
+        <tr>
+          <td>Progressive</td>
+          <td>Homeowners</td>
+          <td>12%</td>
+          <td>Bundle discount eligible</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <footer>
@@ -166,31 +231,12 @@
   </footer>
 
   <script>
-    const zipData = {
-      "30301": {
-        name: "Atlanta, GA",
-        info: "Protection Class: 5, County: Fulton"
-      }
-    };
-
     function showTab(tabId) {
       document.querySelectorAll('.tab').forEach(tab => {
         tab.classList.remove('active');
       });
       document.getElementById(tabId).classList.add('active');
     }
-
-    function searchZip() {
-      const input = document.getElementById('zipSearch').value.trim();
-      const resultDiv = document.getElementById('zipResult');
-      const result = zipData[input];
-      resultDiv.innerHTML = result ? `<p><strong>${result.name}</strong><br>${result.info}</p>` : "<p>No result found.</p>";
-    }
-
-    function searchCommission() {
-      document.getElementById('commissionResult').innerHTML = "<p>Commission data coming soon.</p>";
-    }
   </script>
 </body>
 </html>
-
